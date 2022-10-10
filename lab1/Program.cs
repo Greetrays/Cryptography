@@ -52,8 +52,19 @@ namespace lab1
                         break;
 
                     case "6":
-                        Client client = new Client();
-                        client.StartVote();
+                        RGRClient RGRclient = new RGRClient();
+                        bool isVerify = RGRclient.Login();
+
+                        if (isVerify)
+                        {
+                            Console.WriteLine("Вы успешно авторизировались!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ты помоему перепутал..");
+                        }
+
+                        Console.ReadKey();
                         break;
 
                     case "E":
