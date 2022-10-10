@@ -21,6 +21,7 @@ namespace lab1
                 Console.WriteLine("3. Библиотека с алгоритмами электронной подписи файлов");
                 Console.WriteLine("4. Ментальный покер");
                 Console.WriteLine("5. \"Протокол слепой\" подписи");
+                Console.WriteLine("6. Протокол Фаита-Шамира");
                 Console.WriteLine("E. Выход из программы");
 
                 string userInput = Console.ReadLine().ToUpper();
@@ -42,9 +43,17 @@ namespace lab1
                         break;
 
                     case "4":
+                        Console.WriteLine("Отдельный репозиторий MentalPoker");
                         break;
 
                     case "5":
+                        Client client = new Client();
+                        client.StartVote();
+                        break;
+
+                    case "6":
+                        Client client = new Client();
+                        client.StartVote();
                         break;
 
                     case "E":
