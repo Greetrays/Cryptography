@@ -25,7 +25,6 @@ namespace lab1
                 BigInteger r = _random.Next(1, (int)_server.N - 1);
                 BigInteger x = BigInteger.Pow(r, 2) % _server.N;
                 BigInteger e = _server.GenerateE(x);
-                Console.WriteLine(r);
                 BigInteger y = r * BigInteger.Pow(_s, (int)e);
 
                 if (_server.Verify(y, _v) == false)
@@ -42,7 +41,6 @@ namespace lab1
     {
         private Random _random = new Random();
         private CriptoHelper _criptoHelper = new CriptoHelper();
-        private Criptographic _criptographic = new Criptographic();
         private BigInteger _p;
         private BigInteger _q;
         private BigInteger _n;

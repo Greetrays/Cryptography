@@ -112,45 +112,49 @@ namespace lab1
         public void EncryptRSACipher(byte[] binaryFile, string finalPath)
         {
             Random random = new Random();
-            Int64 pA = (Int64)_criptoHelper.GetPrimeRandomNumber(257, 3);
-            Int64 qA = (Int64)_criptoHelper.GetPrimeRandomNumber(257, 3);
-            Int64 nA = pA * qA;
-            Int64 fiA = (pA - 1) * (qA - 1);
-            Int64 dA = random.Next(1, (int)fiA);
+            BigInteger pA = (BigInteger)_criptoHelper.GetPrimeRandomNumber(257, 3);
+            BigInteger qA = (BigInteger)_criptoHelper.GetPrimeRandomNumber(257, 3);
+            BigInteger nA = pA * qA;
+            BigInteger fiA = (pA - 1) * (qA - 1);
+            BigInteger dA = random.Next(1, (int)fiA);
 
             while (_criptoHelper.CheckForMutualSimplicity(dA, fiA) == false)
             {
                 dA = random.Next(1, (int)fiA);
             }
 
-            Int64 cA = (Int64)_criptographic.FindGCDEvklid(fiA, dA)[2];
+            BigInteger cA = (BigInteger)_criptographic.FindGCDEvklid(dA, fiA)[2];
 
-            if (cA * dA % fiA != 1)
+            if (cA < 0)
             {
-                cA = (Int64)_criptographic.FindGCDEvklid(fiA, dA)[1];
+                cA = (cA + fiA) % fiA;
             }
 
-            Int64 pB = (Int64)_criptoHelper.GetPrimeRandomNumber(257, 3);
-            Int64 qB = (Int64)_criptoHelper.GetPrimeRandomNumber(257, 3);
-            Int64 nB = pB * qB;
-            Int64 fiB = (pB - 1) * (qB - 1);
-            Int64 dB = random.Next(1, (int)fiB);
+            BigInteger pB = (BigInteger)_criptoHelper.GetPrimeRandomNumber(257, 3);
+            BigInteger qB = (BigInteger)_criptoHelper.GetPrimeRandomNumber(257, 3);
+            BigInteger nB = pB * qB;
+            BigInteger fiB = (pB - 1) * (qB - 1);
+            BigInteger dB = random.Next(1, (int)fiB);
 
             while (_criptoHelper.CheckForMutualSimplicity(dB, fiB) == false)
             {
                 dB = random.Next(1, (int)fiB);
             }
 
-            Int64 cB = (Int64)_criptographic.FindGCDEvklid(fiB, dB)[2];
+            BigInteger cB = (BigInteger)_criptographic.FindGCDEvklid(dB, fiB)[2];
 
-            if (cB * dB % fiB != 1)
+            if (cB < 0)
             {
-                cB = (Int64)_criptographic.FindGCDEvklid(fiB, dB)[1];
+                cB = (cB + fiB) % fiB;
             }
 
             List<BigInteger> bigIntBynaryFile = _criptoHelper.ConverBinaryInBigInteger(binaryFile);
             List<BigInteger> e = EncryptKeys(bigIntBynaryFile, dB, nB);
             List<BigInteger> w = EncryptKeys(e, cB, nB);
+
+            byte[] nByte = new byte[w.Count];
+
+            _criptoHelper.WriteFile(finalPath, _criptoHelper.OverwriteBinaryFile(w, ref nByte));
 
             /*
             Console.WriteLine("Отковертировали");

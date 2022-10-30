@@ -65,6 +65,7 @@ namespace lab1
                         }
 
                         Console.ReadKey();
+                        Console.ReadKey();
                         break;
 
                     case "E":
