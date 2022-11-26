@@ -1,0 +1,12 @@
+D:\Teaching\sevensem\Web\TaskManager\Lab3\bin\Debug\Projects.mdf
+D:\Teaching\sevensem\Web\TaskManager\Lab3\bin\Debug\Projects_log.ldf
+D:\Teaching\sevensem\Web\TaskManager\Lab3\bin\Debug\Lab3.exe.config
+D:\Teaching\sevensem\Web\TaskManager\Lab3\bin\Debug\Lab3.exe
+D:\Teaching\sevensem\Web\TaskManager\Lab3\bin\Debug\Lab3.pdb
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.csproj.AssemblyReference.cache
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.Properties.Resources.resources
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.csproj.GenerateResource.cache
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.csproj.CoreCompileInputs.cache
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.exe
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.pdb
+D:\Teaching\sevensem\Web\TaskManager\Lab3\obj\Debug\Lab3.Form1.resources
